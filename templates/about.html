@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+
+{% block title %}About - Python Flask Web App{% endblock %}
+
+{% block content %}
+<section class="section about-section">
+  <div class="section-header">
+    <div class="badge">Architecture & Overview</div>
+    <h2>About This Python Project</h2>
+    <p>How this modern web application is designed and organized.</p>
+  </div>
+
+  <div class="about-grid">
+    <div class="about-card">
+      <h3>🛠️ Technology Stack</h3>
+      <ul class="tech-list">
+        <li><strong>Backend Language:</strong> Python {{ sys_info.python_version }}</li>
+        <li><strong>Web Framework:</strong> Flask {{ sys_info.flask_version }}</li>
+        <li><strong>Template Engine:</strong> Jinja2</li>
+        <li><strong>Operating System:</strong> {{ sys_info.platform }}</li>
+        <li><strong>Frontend:</strong> Semantic HTML5, CSS3 Custom Properties, Vanilla JavaScript (ES6+)</li>
+      </ul>
+    </div>
+
+    <div class="about-card">
+      <h3>📂 Directory Structure</h3>
+      <pre class="code-block font-mono">
+d:\PythonWebsite\
+├── app.py              # Main Flask server & API routes
+├── requirements.txt    # Project dependencies
+├── README.md           # Instructions & documentation
+├── templates\
+│   ├── base.html       # Master Jinja2 layout
+│   ├── index.html      # Home page & dashboard
+│   └── about.html      # About & tech specifications
+└── static\
+    ├── css\
+    │   └── style.css   # Modern styles & themes
+    └── js\
+        └── main.js     # Client API interactions
+      </pre>
+    </div>
+  </div>
+
+  <div class="api-docs-card">
+    <h3>🔌 REST API Reference</h3>
+    <table class="api-table">
+      <thead>
+        <tr>
+          <th>Method</th>
+          <th>Endpoint</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="badge-method get">GET</span></td>
+          <td><code>/api/system-stats</code></td>
+          <td>Fetches live Python interpreter version, host platform, and uptime.</td>
+        </tr>
+        <tr>
+          <td><span class="badge-method get">GET</span></td>
+          <td><code>/api/items</code></td>
+          <td>Lists all tasks and notes stored on the server.</td>
+        </tr>
+        <tr>
+          <td><span class="badge-method post">POST</span></td>
+          <td><code>/api/items</code></td>
+          <td>Creates a new task/note (accepts JSON <code>{title, category}</code>).</td>
+        </tr>
+        <tr>
+          <td><span class="badge-method post">POST</span></td>
+          <td><code>/api/items/&lt;id&gt;/toggle</code></td>
+          <td>Toggles task completion status.</td>
+        </tr>
+        <tr>
+          <td><span class="badge-method delete">DELETE</span></td>
+          <td><code>/api/items/&lt;id&gt;</code></td>
+          <td>Deletes a task by ID.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="center-action">
+    <a href="{{ url_for('home') }}" class="btn btn-primary">← Return to Home</a>
+  </div>
+</section>
+{% endblock %}

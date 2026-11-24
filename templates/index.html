@@ -1,0 +1,109 @@
+{% extends "base.html" %}
+
+{% block title %}Python Flask Website - Fast & Modern{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero">
+  <div class="badge">Powered by Python & Flask</div>
+  <h1 class="hero-title">
+    Fast, Elegant & Modern<br>
+    <span class="gradient-text">Python Web Application</span>
+  </h1>
+  <p class="hero-subtitle">
+    A dynamic full-stack website powered by Python Flask. Featuring server-rendered Jinja2 templates, interactive REST APIs, and a sleek responsive interface.
+  </p>
+  <div class="hero-actions">
+    <a href="#dashboard" class="btn btn-primary">Try Live Features</a>
+    <a href="{{ url_for('about') }}" class="btn btn-secondary">Architecture & Tech</a>
+  </div>
+</section>
+
+<!-- Features Grid -->
+<section id="features" class="section">
+  <div class="section-header">
+    <h2>Why Python for the Web?</h2>
+    <p>Simplicity, readability, and the power of Python's robust ecosystem.</p>
+  </div>
+
+  <div class="grid-cards">
+    <div class="card">
+      <div class="card-icon">⚡</div>
+      <h3>Micro-Framework Power</h3>
+      <p>Built with Flask 3 for ultra-fast request routing, modular blueprints, and zero unnecessary boilerplate.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🧩</div>
+      <h3>Jinja2 Templating</h3>
+      <p>Server-side template inheritance and dynamic data injection for lightning-fast first contentful paint.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🔄</div>
+      <h3>RESTful API Architecture</h3>
+      <p>Complete JSON REST endpoints ready for asynchronous client-side fetch and interactive web operations.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Live System Diagnostics & Interactive Dashboard -->
+<section id="dashboard" class="section">
+  <div class="section-header">
+    <h2>Live Python Server Diagnostics</h2>
+    <p>Real-time metrics queried directly from your running Python interpreter.</p>
+  </div>
+
+  <div class="system-card">
+    <div class="system-header">
+      <div class="status-indicator">
+        <span class="pulse-dot"></span>
+        <span id="serverStatusText">Connecting to Python...</span>
+      </div>
+      <button id="refreshStatsBtn" class="btn btn-sm">Refresh Stats</button>
+    </div>
+
+    <div class="metrics-grid">
+      <div class="metric-item">
+        <span class="metric-label">Python Version</span>
+        <span class="metric-value font-mono" id="statPython">-</span>
+      </div>
+      <div class="metric-item">
+        <span class="metric-label">Operating System</span>
+        <span class="metric-value font-mono" id="statOS">-</span>
+      </div>
+      <div class="metric-item">
+        <span class="metric-label">Server Uptime</span>
+        <span class="metric-value font-mono" id="statUptime">-</span>
+      </div>
+      <div class="metric-item">
+        <span class="metric-label">Active Items</span>
+        <span class="metric-value font-mono" id="statItems">-</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Interactive Task & Note Manager -->
+<section id="interactive" class="section">
+  <div class="section-header">
+    <h2>Interactive Python Task Board</h2>
+    <p>Add, toggle, and manage live items via Python REST API.</p>
+  </div>
+
+  <div class="interactive-box">
+    <form id="itemForm" class="item-form">
+      <input type="text" id="itemTitle" placeholder="Enter a new task or note..." maxlength="100" required>
+      <select id="itemCategory">
+        <option value="Feature">Feature</option>
+        <option value="Task">Task</option>
+        <option value="Idea">Idea</option>
+        <option value="Learning">Learning</option>
+      </select>
+      <button type="submit" class="btn btn-primary">Add Item</button>
+    </form>
+
+    <div id="itemsContainer" class="items-list">
+      <div class="loading-state">Loading tasks from Python backend...</div>
+    </div>
+  </div>
+</section>
+{% endblock %}
